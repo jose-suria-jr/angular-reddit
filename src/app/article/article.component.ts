@@ -16,15 +16,7 @@ export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row';
   @Input() article: Article;
 
-	constructor() {
-    /*
-    this.article = new Article(
-      'Angular 2',
-      'http://angular.io',
-      10
-    );
-    */
-	}
+	constructor() {}
 
 	voteUp() {
     this.article.voteUp();
@@ -34,7 +26,12 @@ export class ArticleComponent implements OnInit {
 	voteDown() {
     this.article.voteDown();
     return false;
-	}
+  }
+  
+  removeArticle() {
+    this.article.popArticleId();
+    return false;
+  }
 
 	ngOnInit() {
 		

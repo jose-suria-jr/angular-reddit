@@ -2,11 +2,15 @@ export class Article {
     title: string;
     link: string;
     votes: number;
+    articleId: string;
 
-    constructor(title: string, link: string, votes?: number){
+    constructor(title: string, link: string, articleId: string, votes?: number){
         this.title = title;
         this.link = link;
         this.votes = votes || 0;
+
+        // Generates a seeded random number as ID
+        this.articleId = articleId;
     }
 
     voteUp(): void {
@@ -15,6 +19,10 @@ export class Article {
 
     voteDown(): void {
         this.votes -= 1;
+    }
+
+    popArticleId(): string {
+        return this.articleId;
     }
 
     domain(): string {
